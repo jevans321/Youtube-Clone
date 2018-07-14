@@ -4,9 +4,10 @@ import ReactDOM from 'react-dom';
 import SearchBar from './components/search_bar';
 import youtubeSearch from 'youtube-api-v3-search';
 import VideoList from './components/video_list';
-require('dotenv').config();
+//require('dotenv').config();
 
-const API_KEY = process.env.GOOGLE_KEY;
+const API_KEY ='AIzaSyBPov165-P9p9CQtqjRuJjNIE3r4PstEFA';
+//process.env.GOOGLE_KEY;
 
 // Create a new component. This component should produce some HTML
 // 'const' - ES6 syntax, we're saying this is the final value of this variable, it's never gonna change, constant
