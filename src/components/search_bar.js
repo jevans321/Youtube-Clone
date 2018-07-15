@@ -30,7 +30,7 @@ class SearchBar extends Component {
   // Constructor is called automatically whenever a class is created
   constructor(props) {
     super(props);
-    this.state = { term: ''};
+    this.state = { term: '' };
   }
   /* To get access to the Change input use
   react defined special property 'onChange' property 
@@ -42,13 +42,18 @@ class SearchBar extends Component {
      - render does not have a colin after it like a 'render: function()' prop */
   render () {
     return (
-      <div>
+      <div className="search-bar">
         {/* All input elements emit a change event */}
         <input
         value={this.state.term}
-        onChange={event => this.setState({term: event.target.value})} />
+        onChange={event => this.onInputChange(event.target.value)} />
       </div>
     )
+  }
+
+  onInputChange(term) {
+    this.setState({ term });
+    this.props.onSearchTermChange(term);
   }
 
 }
