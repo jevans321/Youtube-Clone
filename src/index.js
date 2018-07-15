@@ -5,6 +5,7 @@ import SearchBar from './components/search_bar';
 import youtubeSearch from 'youtube-api-v3-search';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
+import _ from 'lodash';
 //require('dotenv').config();
 
 const API_KEY = process.env.GOOGLE_KEY;
@@ -32,12 +33,13 @@ class App extends Component {
     });
   }
 
-  render(){
+  render() {
+    const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
     /* When making reference to a javascript variable...
        USE CURLY BRACES! e.g.{this.state.videos} e.g.{variable} */
     return (
       <div>
-        <SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
+        <SearchBar onSearchTermChange={videoSearch}/>
         <VideoDetail video={this.state.selectedVideo}/>
         <VideoList
           onVideoSelect={selectedVideo => this.setState({selectedVideo})}
