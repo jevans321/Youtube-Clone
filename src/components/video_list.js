@@ -12,6 +12,8 @@ import VideoListItem from './video_list_item';
    In a Class-based Component 'props' are available anywhere in any
    method
    - defined as 'this.props' */
+
+
 const VideoList = (props) => {
   const videoItems = props.videos.map((video) => {
     return (
