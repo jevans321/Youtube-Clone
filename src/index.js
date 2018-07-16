@@ -10,11 +10,8 @@ import _ from 'lodash';
 
 const API_KEY = process.env.GOOGLE_KEY;
 
-// Create a new component. This component should produce some HTML
-// 'const' - ES6 syntax, we're saying this is the final value of this variable, it's never gonna change, constant
-// JSX dialect of JS that allows us to write what looks like HTML, but is really JS behind the scenes
 class App extends Component {
-  /* constructor always gets called with props */
+
   constructor(props){
     super(props);
     this.state = { 
@@ -35,8 +32,7 @@ class App extends Component {
 
   render() {
     const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
-    /* When making reference to a javascript variable...
-       USE CURLY BRACES! e.g.{this.state.videos} e.g.{variable} */
+
     return (
       <div>
         <SearchBar onSearchTermChange={videoSearch}/>
@@ -48,5 +44,5 @@ class App extends Component {
     );
   }
 }
-// Take this component's generated HTML and put in on the page(in the DOM)
+
 ReactDOM.render(<App />, document.querySelector('.container'));
